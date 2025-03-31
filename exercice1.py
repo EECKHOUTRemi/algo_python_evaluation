@@ -11,10 +11,10 @@ def oldMessage():
     splittedText = cleanText.split(" ")
     sortedText = sorted(Counter(splittedText))                  # Tri par ordre alphabétique et suppression de doublons
 
-
-    for filling_word in filling_words_old_message:
-        if filling_word in sortedText:
-            sortedText.remove(filling_word)
+# Supprime les mots de remplissage dans le texte trié
+for filling_word in filling_words_old_message:
+    if filling_word in sortedText:
+        sortedText.remove(filling_word)
 
     keysDict = {} # Initialisation du dictionnaire qui contiendra les clefs pour décoder le message
 
@@ -39,10 +39,11 @@ def myMessage(keysDict):
 
     decryptedText = ""
 
+
     for cryptedWord in splittedText:
         for value, key in keysDict.items():
             if cryptedWord == key:
-                decryptedText += str(value)
+                decryptedText += str(value)     
 
     print(decryptedText)
 
